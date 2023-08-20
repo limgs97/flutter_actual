@@ -27,8 +27,6 @@ class _LoginScreenState extends State<LoginScreen> {
     final storage = FlutterSecureStorage();
     final dio = Dio();
 
-
-
     return DefaultLayout(
       title: '',
       child: Padding(

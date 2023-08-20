@@ -42,25 +42,15 @@ class RestaurantScreen extends StatelessWidget {
                     itemBuilder: (context, index) {
                       final item = snapshot.data![index];
                       final pItem = RestaurantModel.fromJson(json: item);
-                      //parsed
-                      // final pItem = RestaurantModel(
-                      //   id: item['id'],
-                      //   name: item['name'],
-                      //   thumbUrl: 'http://${ip}${item['thumbUrl']}',
-                      //   tags: List.from(item['tags']),
-                      //   priceRange: RestaurantPriceRange.values.firstWhere(
-                      //     (e) => e.name == item['priceRange'],
-                      //   ),
-                      //   ratings: item['ratings'],
-                      //   ratingsCount: item['ratingsCount'],
-                      //   deliveryTime: item['deliveryTime'],
-                      //   deliveryFee: item['deliveryFee']
-                      // );
 
                       return GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => RestaurantDetailScreen()),
+                            MaterialPageRoute(
+                              builder: (_) => RestaurantDetailScreen(
+                                id: pItem.id,
+                              )
+                            ),
                           );
                         },
                         child: RestaurantCard.fromModel(
